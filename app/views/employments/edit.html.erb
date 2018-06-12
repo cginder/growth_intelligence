@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @employment.errors.any? %>
+  <% @employment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Employment #<%= @employment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_employment/<%= @employment.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for physician_id -->
+      <div class="form-group">
+        <label for="physician_id" class="control-label">
+          Physician
+        </label>
+
+        <input type="text" id="physician_id" name="physician_id" placeholder="Physician" class="form-control" value="<%= @employment.physician_id %>">
+      </div>
+
+      <!-- Label and input for practice_id -->
+      <div class="form-group">
+        <label for="practice_id" class="control-label">
+          Practice
+        </label>
+
+        <input type="text" id="practice_id" name="practice_id" placeholder="Practice" class="form-control" value="<%= @employment.practice_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Employment
+      </button>
+      or
+      <a href="/employments/<%= @employment.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
