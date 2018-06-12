@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Practice has many practice_locations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Practice Locations
+      </li>
+
+      <% @practice.practice_locations.each do |office| %>
+        <li class="list-group-item">
+          <a href="/offices/<%= office.id %>">
+            <%= office.line1_address %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/offices/<%= office.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/offices/<%= office.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_office/<%= office.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Practice has many employments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Employments
+      </li>
+
+      <% @practice.employments.each do |employment| %>
+        <li class="list-group-item">
+          <a href="/employments/<%= employment.id %>">
+            <%= employment.physician_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/employments/<%= employment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/employments/<%= employment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_employment/<%= employment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
