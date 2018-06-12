@@ -16,7 +16,7 @@
 
       <% @employments.each do |employment| %>
       <tr>
-        <td><%= employment.physician_id %></td>
+        <td><%= employment.physician.npi %></td>
         <td><%= employment.practice_id %></td>
         <td>
           <a href="/employments/<%= employment.id %>" class="btn btn-primary">Show</a>
