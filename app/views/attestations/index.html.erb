@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Attestations
+    <a href="/attestations/new" class="btn btn-lg btn-success">New Attestation</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Physician</th>
+        <th>Ehr vendor</th>
+        <th>Ehr name</th>
+        <th>Certification date</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @attestations.each do |attestation| %>
+      <tr>
+        <td><%= attestation.physician_id %></td>
+        <td><%= attestation.ehr_vendor %></td>
+        <td><%= attestation.ehr_name %></td>
+        <td><%= attestation.certification_date %></td>
+        <td>
+          <a href="/attestations/<%= attestation.id %>" class="btn btn-primary">Show</a>
+          <a href="/attestations/<%= attestation.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_attestation/<%= attestation.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

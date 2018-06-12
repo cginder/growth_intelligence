@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Attestation resource:
+  # CREATE
+  get "/attestations/new", :controller => "attestations", :action => "new"
+  post "/create_attestation", :controller => "attestations", :action => "create"
+
+  # READ
+  get "/attestations", :controller => "attestations", :action => "index"
+  get "/attestations/:id", :controller => "attestations", :action => "show"
+
+  # UPDATE
+  get "/attestations/:id/edit", :controller => "attestations", :action => "edit"
+  post "/update_attestation/:id", :controller => "attestations", :action => "update"
+
+  # DELETE
+  get "/delete_attestation/:id", :controller => "attestations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Employment resource:
   # CREATE
   get "/employments/new", :controller => "employments", :action => "new"

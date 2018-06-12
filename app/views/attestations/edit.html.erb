@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @attestation.errors.any? %>
+  <% @attestation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Attestation #<%= @attestation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_attestation/<%= @attestation.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for physician_id -->
+      <div class="form-group">
+        <label for="physician_id" class="control-label">
+          Physician
+        </label>
+
+        <input type="text" id="physician_id" name="physician_id" placeholder="Physician" class="form-control" value="<%= @attestation.physician_id %>">
+      </div>
+
+      <!-- Label and input for ehr_vendor -->
+      <div class="form-group">
+        <label for="ehr_vendor" class="control-label">
+          Ehr vendor
+        </label>
+
+        <input type="text" id="ehr_vendor" name="ehr_vendor" placeholder="Ehr vendor" class="form-control" value="<%= @attestation.ehr_vendor %>">
+      </div>
+
+      <!-- Label and input for ehr_name -->
+      <div class="form-group">
+        <label for="ehr_name" class="control-label">
+          Ehr name
+        </label>
+
+        <input type="text" id="ehr_name" name="ehr_name" placeholder="Ehr name" class="form-control" value="<%= @attestation.ehr_name %>">
+      </div>
+
+      <!-- Label and input for certification_date -->
+      <div class="form-group">
+        <label for="certification_date" class="control-label">
+          Certification date
+        </label>
+
+        <input type="text" id="certification_date" name="certification_date" placeholder="Certification date" class="form-control" value="<%= @attestation.certification_date %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Attestation
+      </button>
+      or
+      <a href="/attestations/<%= @attestation.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
