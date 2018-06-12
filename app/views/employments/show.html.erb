@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Physician</dt>
-      <dd><%= @employment.physician_id %></dd>
+      <dd>
+        <% if @employment.physician.present? %>
+          <a href="/physicians/<%= @employment.physician_id %>">
+            <%= @employment.physician.npi %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Practice</dt>
-      <dd><%= @employment.practice_id %></dd>
+      <dd>
+        <% if @employment.practice.present? %>
+          <a href="/practices/<%= @employment.practice_id %>">
+            <%= @employment.practice.pac_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

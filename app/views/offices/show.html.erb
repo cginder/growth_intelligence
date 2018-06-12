@@ -24,7 +24,13 @@
       <dd><%= @office.phone %></dd>
 
       <dt>Practice</dt>
-      <dd><%= @office.practice_id %></dd>
+      <dd>
+        <% if @office.practice.present? %>
+          <a href="/practices/<%= @office.practice_id %>">
+            <%= @office.practice.pac_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

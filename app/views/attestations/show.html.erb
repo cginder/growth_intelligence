@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Physician</dt>
-      <dd><%= @attestation.physician_id %></dd>
+      <dd>
+        <% if @attestation.physician.present? %>
+          <a href="/physicians/<%= @attestation.physician_id %>">
+            <%= @attestation.physician.npi %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Ehr vendor</dt>
       <dd><%= @attestation.ehr_vendor %></dd>

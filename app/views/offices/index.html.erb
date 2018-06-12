@@ -27,7 +27,13 @@
         <td><%= office.state %></td>
         <td><%= office.zip %></td>
         <td><%= office.phone %></td>
-        <td><%= office.practice.pac_id %></td>
+        <td>
+          <% if office.practice.present? %>
+            <a href="/practices/<%= office.practice.id %>">
+              <%= office.practice.pac_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/offices/<%= office.id %>" class="btn btn-primary">Show</a>
           <a href="/offices/<%= office.id %>/edit" class="btn btn-warning">Edit</a>
