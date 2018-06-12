@@ -1,6 +1,6 @@
 class PracticesController < ApplicationController
   def index
-    @practices = Practice.all
+    @practices = Practice.page(params[:page]).per(10)
 
     render("practices/index.html.erb")
   end

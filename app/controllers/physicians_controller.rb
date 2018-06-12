@@ -1,6 +1,6 @@
 class PhysiciansController < ApplicationController
   def index
-    @physicians = Physician.all
+    @physicians = Physician.page(params[:page]).per(10)
 
     render("physicians/index.html.erb")
   end

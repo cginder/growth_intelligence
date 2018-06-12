@@ -1,6 +1,6 @@
 class AttestationsController < ApplicationController
   def index
-    @attestations = Attestation.all
+    @attestations = Attestation.page(params[:page]).per(10)
 
     render("attestations/index.html.erb")
   end
