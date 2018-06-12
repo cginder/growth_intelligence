@@ -1,4 +1,6 @@
 ActiveAdmin.register Attestation do
+
+ permit_params :physician_id, :ehr_vendor, :ehr_name, :certification_date
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
