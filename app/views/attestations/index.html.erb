@@ -18,7 +18,7 @@
 
       <% @attestations.each do |attestation| %>
       <tr>
-        <td><%= attestation.physician_id %></td>
+        <td><%= attestation.physician.npi %></td>
         <td><%= attestation.ehr_vendor %></td>
         <td><%= attestation.ehr_name %></td>
         <td><%= attestation.certification_date %></td>
