@@ -24,7 +24,7 @@
           Physician
         </label>
 
-        <input type="text" id="physician_id" name="physician_id" placeholder="Physician" class="form-control" value="<%= @attestation.physician_id %>">
+        <%= select_tag(:physician_id, options_from_collection_for_select(Physician.all, :id, :npi, @attestation.physician_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for ehr_vendor -->
