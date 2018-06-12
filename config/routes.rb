@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "physicians#index"
   # Routes for the Attestation resource:
   # CREATE
   get "/attestations/new", :controller => "attestations", :action => "new"
