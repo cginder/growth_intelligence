@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @practice.errors.any? %>
+  <% @practice.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Practice</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_practice" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for pac_id -->
+      <div class="form-group">
+        <label for="pac_id" class="control-label">
+          Pac
+        </label>
+
+        <input type="text" id="pac_id" name="pac_id" placeholder="Pac" class="form-control" value="<%= @practice.pac_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Practice
+      </button>
+      or
+      <a href="/practices">Cancel</a>
+    </form>
+  </div>
+</div>
