@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Physician #<%= @physician.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Npi</dt>
+      <dd><%= @physician.npi %></dd>
+
+      <dt>First name</dt>
+      <dd><%= @physician.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @physician.last_name %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/physicians" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/physicians/<%= @physician.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_physician/<%= @physician.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
