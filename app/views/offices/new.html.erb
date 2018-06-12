@@ -78,7 +78,7 @@
           Practice
         </label>
 
-        <input type="text" id="practice_id" name="practice_id" placeholder="Practice" class="form-control" value="<%= @office.practice_id %>">
+        <%= select_tag(:practice_id, options_from_collection_for_select(Practice.all, :id, :pac_id, @office.practice_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
