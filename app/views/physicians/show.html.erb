@@ -57,6 +57,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_employment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for physician_id -->
+      <input type="hidden" name="physician_id" value="<%= @physician.id %>">
+
+      <!-- Label and input for practice_id -->
+      <div class="form-group">
+        <label for="practice_id" class="control-label">
+          Practice
+        </label>
+
+        <%= select_tag(:practice_id, options_from_collection_for_select(Practice.all, :id, :pac_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Employment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +111,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_attestation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for physician_id -->
+      <input type="hidden" name="physician_id" value="<%= @physician.id %>">
+
+      <!-- Label and input for ehr_vendor -->
+      <div class="form-group">
+        <label for="ehr_vendor" class="control-label">
+          Ehr vendor
+        </label>
+
+        <input type="text" id="ehr_vendor" name="ehr_vendor" placeholder="Ehr vendor" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for ehr_name -->
+      <div class="form-group">
+        <label for="ehr_name" class="control-label">
+          Ehr name
+        </label>
+
+        <input type="text" id="ehr_name" name="ehr_name" placeholder="Ehr name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for certification_date -->
+      <div class="form-group">
+        <label for="certification_date" class="control-label">
+          Certification date
+        </label>
+
+        <input type="text" id="certification_date" name="certification_date" placeholder="Certification date" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Attestation
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

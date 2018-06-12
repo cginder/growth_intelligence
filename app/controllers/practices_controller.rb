@@ -6,6 +6,8 @@ class PracticesController < ApplicationController
   end
 
   def show
+    @employment = Employment.new
+    @office = Office.new
     @practice = Practice.find(params[:id])
 
     render("practices/show.html.erb")

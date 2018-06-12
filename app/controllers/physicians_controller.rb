@@ -6,6 +6,8 @@ class PhysiciansController < ApplicationController
   end
 
   def show
+    @attestation = Attestation.new
+    @employment = Employment.new
     @physician = Physician.find(params[:id])
 
     render("physicians/show.html.erb")
