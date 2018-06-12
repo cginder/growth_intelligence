@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @office.errors.any? %>
+  <% @office.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Office</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_office" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for line1_address -->
+      <div class="form-group">
+        <label for="line1_address" class="control-label">
+          Line1 address
+        </label>
+
+        <input type="text" id="line1_address" name="line1_address" placeholder="Line1 address" class="form-control" value="<%= @office.line1_address %>">
+      </div>
+
+      <!-- Label and input for line2_address -->
+      <div class="form-group">
+        <label for="line2_address" class="control-label">
+          Line2 address
+        </label>
+
+        <input type="text" id="line2_address" name="line2_address" placeholder="Line2 address" class="form-control" value="<%= @office.line2_address %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @office.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @office.state %>">
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="control-label">
+          Zip
+        </label>
+
+        <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @office.zip %>">
+      </div>
+
+      <!-- Label and input for phone -->
+      <div class="form-group">
+        <label for="phone" class="control-label">
+          Phone
+        </label>
+
+        <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @office.phone %>">
+      </div>
+
+      <!-- Label and input for practice_id -->
+      <div class="form-group">
+        <label for="practice_id" class="control-label">
+          Practice
+        </label>
+
+        <input type="text" id="practice_id" name="practice_id" placeholder="Practice" class="form-control" value="<%= @office.practice_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Office
+      </button>
+      or
+      <a href="/offices">Cancel</a>
+    </form>
+  </div>
+</div>
