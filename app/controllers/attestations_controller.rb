@@ -1,6 +1,7 @@
 class AttestationsController < ApplicationController
   def index
-    @attestations = Attestation.page(params[:page]).per(10)
+    @q = Attestation.ransack(params[:q])
+    @attestations = @q.result(:distinct => true).includes(:physician).page(params[:page]).per(10)
 
     render("attestations/index.html.erb")
   end

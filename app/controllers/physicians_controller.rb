@@ -1,6 +1,7 @@
 class PhysiciansController < ApplicationController
   def index
-    @physicians = Physician.page(params[:page]).per(10)
+    @q = Physician.ransack(params[:q])
+    @physicians = @q.result(:distinct => true).includes(:employments, :attestations).page(params[:page]).per(10)
 
     render("physicians/index.html.erb")
   end

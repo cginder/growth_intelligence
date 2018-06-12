@@ -1,6 +1,7 @@
 class PracticesController < ApplicationController
   def index
-    @practices = Practice.page(params[:page]).per(10)
+    @q = Practice.ransack(params[:q])
+    @practices = @q.result(:distinct => true).includes(:practice_locations, :employments).page(params[:page]).per(10)
 
     render("practices/index.html.erb")
   end
